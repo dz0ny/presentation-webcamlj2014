@@ -1,0 +1,91 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Love, art and war – the PHP story
+
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,600', rel='stylesheet', type='text/css')
+    // build:css styles/styles.css
+    //- Check out 'src/bower_components/prism/themes/' for available themes
+    link(rel='stylesheet', type='text/css', href='bower_components/prism/themes/prism-tomorrow.css')
+    link(rel='stylesheet', type='text/css', href='bower_components/bespoke-fx/src/main.css')
+    link(rel='stylesheet', type='text/css', href='bower_components/bespoke-fx/src/animations.css')
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
+    // endbuild
+
+  body
+
+    article
+
+      section(data-bespoke-fx-transition="scale-down-out-move-in")
+        h1 Love, art and war
+        h2 
+          | The 
+          span(style="background-color:#8892BF;") PHP
+          |  story
+        h3
+          a @dz0ny
+
+      section.gif.gif--fight(data-bespoke-fx-transition="scale-down-out-move-in")
+        h1 PHP 5.3 vs 5.4 vs 5.5 vs HHVM
+
+      section(data-bespoke-state='green')
+        img(src="https://www.docker.io/static/img/homepage-docker-logo.png")
+        h3 is an open-source project to easily create lightweight, portable, self-sufficient containers from any application.
+
+      section(data-bespoke-state='green')
+        h2 Docker + FIG recepie
+        pre.language-markup
+          code.
+            web:
+              image: dz0ny/docker-nginx:march
+              links:
+               - mysql
+              environment:
+                PHP: 5.5
+                XDEBUG: 172.17.42.1
+            mysql:
+              image: orchardup/mysql:5.5
+              ports:
+                - 3306
+              environment:
+                MYSQL_DATABASE: wordpress
+                MYSQL_ROOT_PASSWORD: wordpress
+      section(data-bespoke-fx-transition="scale-down-out-move-in")
+        h1 Integration tests
+        h2 Behat + Mink + Selenium
+        h2 Behavior Driven Development
+
+      section(data-bespoke-state='green')
+        h1 Integration tests
+        pre.language-gherkin
+          code.
+            Scenario: Activate plugin
+              Given I am on "/wp-admin/plugins.php"
+              When I activate plugin with name "wp-amz"
+              Then I should see "Plugin activated."
+              And save screenshot with name "plugins.png"
+              
+      section(data-bespoke-fx-transition="scale-down-out-move-in")
+        h1 Boss is happy
+        img(src="images/plugin.png")
+
+      section(data-bespoke-fx-transition="scale-down-out-move-in")
+        h1 I'am happy 
+        img(src="images/repo.png")
+
+    // build:js scripts/scripts.js
+    script(src='bower_components/modernizr/modernizr.js')
+    script(src='bower_components/bespoke.js/dist/bespoke.min.js')
+    script(src='bower_components/bespoke-keys/dist/bespoke-keys.min.js')
+    script(src='bower_components/bespoke-touch/dist/bespoke-touch.min.js')
+    script(src='bower_components/bespoke-scale/dist/bespoke-scale.min.js')
+    script(src='bower_components/bespoke-hash/dist/bespoke-hash.min.js')
+    script(src='bower_components/bespoke-progress/dist/bespoke-progress.min.js')
+    script(src='bower_components/bespoke-forms/dist/bespoke-forms.min.js')
+    script(src='bower_components/bespoke-fx/dist/bespoke-fx.js')
+    script(src='bower_components/prism/prism.js')
+    script(src='bower_components/bespoke-state/dist/bespoke-state.min.js')
+    script(src='scripts/main.js')
+    // endbuild
